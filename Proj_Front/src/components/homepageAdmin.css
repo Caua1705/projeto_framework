@@ -1,0 +1,23 @@
+* {
+  text-shadow: none;
+}
+
+.container_homepageAdmin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vmax;
+  background-color: red;
+  text-shadow: none;
+}
+
+.container_homepageAdmin h1 {
+  margin-bottom: 30px;
+  text-shadow: none;
+}
+
+.container_homepageAdmin a {
+  text-shadow: none;
+}

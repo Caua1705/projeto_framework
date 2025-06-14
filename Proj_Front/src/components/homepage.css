@@ -1,0 +1,24 @@
+* {
+  text-shadow: none;
+}
+
+.container_homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vmax;
+  background-color: white;
+}
+
+.container_homepage img {
+  width: 600px;
+  height: 400px;
+}
+
+.container_homepage a {
+  margin-top: 20px;
+  text-decoration: nome;
+  color: black;
+}
