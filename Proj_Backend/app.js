@@ -9,7 +9,7 @@ app.use(cors());           // libera acesso externo (front, outras portas)
 app.use(express.json());   // para o Express entender JSON no body das requisições
 
 // Importa o objeto da rota
-const usuariosRouter = require('./routes/usuarios');
+const usuariosRouter = require('./src/routers/usuarios.js');
 
 // Monta as rotas com o prefixo '/usuarios'
 app.use('/usuarios', usuariosRouter);

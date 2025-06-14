@@ -1,4 +1,4 @@
-const prisma = require('../path/config/db') // importando o prisma
+const prisma = require('../config/db') // importando o prisma
 
 async function criarUsuario(nome_usuario, senha) {
   try {
