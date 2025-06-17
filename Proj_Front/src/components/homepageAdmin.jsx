@@ -27,11 +27,20 @@ const HomepageAdmin = () => {
     fetchUsers();
   }, []);
 
-  const deletarUser = () => {
+  const deletarUser = async (id) => {
+    const confirmar = window.confirm("Tem certeza que deseja deletar este usuário?");
+    if (!confirmar) return;
 
-
-  }
+    try {
+      await axios.delete(`${URL}/${id}`);
+      notify.success("Usuário deletado com sucesso!");
+      setUserData(userData.filter(usuario => usuario.id !== id));
+    } catch (error) {
+      notify.error("Erro ao deletar usuário: " + error.message);
+    }
+  };
   
+
   // const userData = [
   //   {
   //     "id": 1,
@@ -80,7 +89,7 @@ const HomepageAdmin = () => {
               <td>{usuario.username}</td>
               <td>{usuario.password}</td>
               <td>
-                <button onClick={deletarUser}>Deletar</button>
+                <button onClick={() => deletarUser(usuario.id)}>Deletar</button>
               </td>
             </tr>
           ))}
