@@ -10,8 +10,9 @@ const Homepage = () => {
 
   return (
     <div className="container_homepage">
-      <img src={underConstruction} alt="imagem não disponível"/>
-      <a href="/login">Voltar para a tela de login</a>
+      <img src={underConstruction} 
+      alt="imagem não disponível" 
+      onClick={() => navigate(-1)}/>
     </div>
   );
 };

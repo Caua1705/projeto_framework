@@ -10,6 +10,8 @@ import Homepage from './components/homepage';
 
 import HomepageAdmin from './components/homepageAdmin';
 
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -24,6 +26,17 @@ function App() {
           <Route path='/homeadmin' element={<HomepageAdmin /> } />
         </Routes>
       </BrowserRouter>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        transition={Bounce}
+        closeOnClick
+        pauseOnHover={false}
+        theme={'dark'}
+      />
     </div>
   );
 }
