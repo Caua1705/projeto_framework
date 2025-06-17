@@ -1,19 +1,22 @@
-const express = require('express');// cria o servidor e controla as rotas e requisições
+const express = require('express'); // carrega o Express, que é um framework para Node.js usado para criar servidores web
 
-const cors = require('cors');// Ativa o CORS para liberar acesso a outras origens (ex: front em outra porta)
+const app = express(); // cria o servidor que controla as rotas e requisições
 
+app.use(express.json()); // para fazer com que a aplicação consiga entender requisições com corpo (body) em formato JSON
 
-const app = express();
+// carrega o CORS para liberar acesso ao servidor por um front na mesma máquina (e superar a restricao Same-Origin Policy)
+const cors = require('cors');
+app.use(cors());
 
-app.use(cors());           // libera acesso externo (front, outras portas)
-app.use(express.json());   // para o Express entender JSON no body das requisições
+// carrega o dotenv e recupera a variável de ambiente PORT do arquivo .env (ou usa 3000 como padrão)
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
-// Importa o objeto da rota
-const usuariosRouter = require('./src/routers/usuarios.js');
+const loginRoutes = require('./src/routes/loginRoutes.js'); // Importa o objeto de rotas de login
 
-// Monta as rotas com o prefixo '/usuarios'
-app.use('/usuarios', usuariosRouter);
+app.use(loginRoutes); // Monta as rotas de login
 
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+// Inicia o servidor na porta definida
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
